@@ -1,0 +1,8 @@
+services:
+  app:
+   image: aveein/laravel-docker-v2
+   ports:
+       - "8080:80"
+   volumes:
+      - ./src:/var/www/
+      - ./src/apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
