@@ -12,12 +12,13 @@ RUN apt update \
             intl \
             opcache \
             pdo \
-            pdo_pgsql \
-            pgsql
+            pdo_mysql
 
 WORKDIR /var/www/laravel_docker
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN apt-get install nano
 
 COPY . .
 
@@ -26,3 +27,4 @@ RUN composer install
 RUN chmod -R 775 storage
 
 RUN chown -R www-data:www-data storage
+
